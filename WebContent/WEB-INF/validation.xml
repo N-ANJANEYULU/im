@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+
+        <!-- Logon Form used by logon.jsp -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logon.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logon.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+    </formset>
+    
+    
+    <formset>
+
+        <!-- product Form used by product.jsp -->
+        <form name="productForm">
+            <field
+                property="name" depends="required,mask">
+                    <arg key="product.name"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+            
+            <field
+                property="mfdate"
+                depends="required">
+                    <arg key="product.mf.date"/>
+                    
+                    
+            </field>
+            
+            <field
+                property="expdate"
+                depends="required">
+                    <arg key="product.exp.date"/>
+                    
+                    
+            </field>
+        </form>
+
+     <!-- product Form used by Users.jsp -->
+        <form name="usersForm">
+            <field
+                property="name" depends="required">
+                    <arg key="users.name"/>
+                    
+            </field>
+            
+            <field
+                property="password"
+                depends="required">
+                    <arg key="users.password"/>
+                    
+                    
+            </field>
+            
+            <field
+                property="type"
+                depends="required">
+                    <arg key="users.type"/>
+                    
+                    
+            </field>
+        </form>
+
+    
+    
+    
+    
+    
+    <!-- product Form used by purchase.jsp -->
+        <form name="purchaseForm">
+            <field
+                property="name" depends="required,mask">
+                    <arg key="product.name"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="id"
+                depends="required,mask">
+                    <arg key="purchase.id"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-100a-z]*$</var-value>
+                    </var>
+                    
+            </field>
+            
+            <field
+                property="purchasedate"
+                depends="required,mask">
+                    <arg key="purchase.date"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-100]*$</var-value>
+                    </var>
+                    
+            </field>
+            
+            <field
+                property="totalcost"
+                depends="required,mask">
+                    <arg key="purchase.totalcost"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-100]*$</var-value>
+                    </var>
+                    
+            </field>
+        </form>
+
+    </formset>
+
+    <!-- An example formset for another locale -->
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+   </formset>
+
+</form-validation>
